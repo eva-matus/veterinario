@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Breed</th>
+      <th>Birthdate</th>
+      <th>Visits</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pets.each do |pet| %>
+      <tr>
+        <td><%= pet.name %></td>
+        <td><%= pet.breed %></td>
+        <td><%= pet.birthdate %></td>
+        <td><%= pet.pet_histories_count %></td>
+        <td><%= link_to 'Show', pet %></td>
+        <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
+        <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "<button class='btn btn-light'>New Client</button>".html_safe, new_client_path, :id=>"open-contacts-dialog-btn", :class=>"inbox-sf-add-btn tip" %>
+<%= link_to "<button class='btn btn-light'>Pet Histories</button>".html_safe, pet_histories_path, :id=>"open-contacts-dialog-btn", :class=>"inbox-sf-add-btn tip" %>
+<%= link_to "<button class='btn btn-light'>Pets</button>".html_safe, pets_path, :id=>"open-contacts-dialog-btn", :class=>"inbox-sf-add-btn tip" %>
+<%= link_to "<button class='btn btn-light'>Clients</button>".html_safe, clients_path, :id=>"open-contacts-dialog-btn", :class=>"inbox-sf-add-btn tip" %>
